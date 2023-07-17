@@ -8,11 +8,10 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 
 function MyApp({ Component, pageProps }: AppProps) {
+]
   return (
     <>
-      <Component
-        {...pageProps}
-      />
+      <Component {...pageProps} />
       <Analytics />
     </>
   );
