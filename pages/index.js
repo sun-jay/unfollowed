@@ -22,6 +22,7 @@ const Index = () => {
 
     const [columnsCount, setColumnsCount] = useState(3);
     const [columns, setColumns] = useState([]);
+    const [maxItemsPerColumn, setMaxItemsPerColumn] = useState(0);
 
     useEffect(() => {
         const maxItemsPerColumn = Math.ceil(links.length / columnsCount);
@@ -32,6 +33,7 @@ const Index = () => {
         }
 
         setColumns(newColumns);
+        setMaxItemsPerColumn(maxItemsPerColumn);
     }, [links, columnsCount]);
 
 
@@ -183,7 +185,7 @@ const Index = () => {
 
                                 </h1>) :
                                     (<h1 className=" md:block text-md md:text-sm text-center w-12/12 mb-3 ">
-                                        Instagram is required by law (in California) to offer downloads of personal data to users. This includes all of the user's followers and all of the user's following. Simply request a data download from in the instagram app (takes about 10 minutes to email). Download the data and upload the contents of the 'followers_and_following' folder. WE DO NOT COLLECT ANY DATA. All the computation is done in the browser using JavaScript. In fact, the website could function perfectly offline, but you need an internet connection to get the website code.
+                                        Instagram is required by law (in California) to offer downloads of personal data to users. This includes all of the user's followers and all of the user's following. Simply request a data download from in the instagram app (select HTML format takes about 10 minutes to email). Download the data and upload the contents of the 'followers_and_following' folder. WE DO NOT COLLECT ANY DATA. All the computation is done in the browser using JavaScript. In fact, the website could function perfectly offline, but you need an internet connection to get the website code.code.
                                     </h1>)}
                             </div>
                         </motion.div>)}
@@ -220,7 +222,7 @@ const Index = () => {
 
                                 {/* {props.user ? <div>user :{props.user.displayName}</div> : null}
                                                   <div>user :{ JSON.stringify(props.FBuser.requests?.map((r:any)=> r.Res)) }</div> */}
-                                <div className="pt-1 text-sm">A <span class="underline"><a href="https://www.sunny-jay.com/">Sunny Jayaram</a></span> Production</div>
+                                <div className="pt-1 text-sm">A <span class="underline"><a rel="noopener noreferrer" target="_blank" href="https://www.sunny-jay.com/">Sunny Jayaram</a></span> Production</div>
                             </h1>
                             {/* this div will ve a horizontal flex box */}
                             {/* desktop */}
@@ -296,7 +298,7 @@ const Index = () => {
                                         <div key={colIndex} className="flex flex-col items-center justify-center mx-4">
                                             {column.map((item, index) => (
                                                 <div key={index}>
-                                                    {`${colIndex * columnsCount + index + 1}. `}
+                                                    {`${colIndex * maxItemsPerColumn + index + 1}. `}
                                                     <a className='underline' href={item} target="_blank" rel="noopener noreferrer">
                                                         {item}
                                                     </a>
